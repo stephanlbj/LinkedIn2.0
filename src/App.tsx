@@ -39,7 +39,7 @@ function App() {
        })
        setIsUserSigned(true)
        setIsLoading(false)
-       navigate("/")
+       navigate("/Home")
      } 
     }
    
