@@ -76,7 +76,7 @@ const Signup = () => {
 
 
 
-const ID_Client = "144044652909-jgammjr4rnh7u0seu74iij48u438glhh.apps.googleusercontent.com"
+const ID_Client = "596770311066-9orgc0i8qld468teceteinr5mkt238u4.apps.googleusercontent.com"
    
 
   const onSuccess = ({profileObj
