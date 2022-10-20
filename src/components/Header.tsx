@@ -39,10 +39,10 @@ const Header = () => {
     const user_name = UserInfo.name.split(" ")
  
     const Logout = () =>{
-      if(typeof window !== "undefined")
-       window.localStorage.removeItem("userinfo")
+      // if(typeof window !== "undefined")
+      //  window.localStorage.removeItem("userinfo")
 
-       setLocalStorageData(null)
+      //  setLocalStorageData(null)
     }
 
    
