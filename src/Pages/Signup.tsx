@@ -5,6 +5,7 @@ import { gapi } from 'gapi-script';
 import { useMyContext } from '../Context/Postcontext';
 import { json } from 'stream/consumers';
 import { useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 
 
@@ -67,10 +68,12 @@ const Signup = () => {
   const Ref = useRef(null)
   const {setUserInfo} = useMyContext()
   const navigate = useNavigate();
-
+  const {LocalStorageData,setLocalStorageData} = useMyContext()
   //string | undefined
 
-  //const ClientID = process.env.REACT_APP_CLIENT_ID
+ //const ClientID = process.env.REACT_APP_CLIENT_ID
+
+
 
 
 const ID_Client = "144044652909-jgammjr4rnh7u0seu74iij48u438glhh.apps.googleusercontent.com"
@@ -78,7 +81,7 @@ const ID_Client = "144044652909-jgammjr4rnh7u0seu74iij48u438glhh.apps.googleuser
 
   const onSuccess = ({profileObj
   }: any) => {
-   // console.log('success:',profileObj );
+ //console.log('success:',profileObj );
 
     setUserInfo({
       email:profileObj.email,
@@ -90,8 +93,9 @@ const ID_Client = "144044652909-jgammjr4rnh7u0seu74iij48u438glhh.apps.googleuser
     })
 
     const UserData = JSON.stringify(profileObj)
+    setLocalStorageData(UserData)
     window.localStorage.setItem("userinfo",UserData)
-    navigate("/")
+ 
     
 };
 
@@ -114,8 +118,20 @@ const onFailure = (err:any) => {
 
   const handleFocusEvent = (e: FocusEvent<HTMLInputElement>) => {
     // Do something
+    toast("Welcome to ink App! please, use the google button in order to login.", {
+      icon: '👏',
+    })
     setIsFocus(true)
   };
+
+  useEffect(()=>{
+    if(typeof window !== "undefined"){
+      if(LocalStorageData !== null){
+        navigate("/")
+      }
+    }
+  
+  },[LocalStorageData])
 
 
   return (
@@ -153,7 +169,7 @@ const onFailure = (err:any) => {
           onSuccess={onSuccess}
           onFailure={onFailure}
           cookiePolicy={'single_host_origin'}
-          isSignedIn={true}
+          
           className="cursor-pointer border border-gray-500 px-2 py-1 rounded-full flex items-center space-x-2 justify-center w-8/12 mx-auto"
       />
  

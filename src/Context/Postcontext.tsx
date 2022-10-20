@@ -22,6 +22,8 @@ type ContextValues = {
     setIsUserSigned:React.Dispatch<React.SetStateAction<boolean>>
     UserInfo:UserProfile
     setUserInfo:React.Dispatch<React.SetStateAction<UserProfile>>
+    LocalStorageData:string | null
+    setLocalStorageData:React.Dispatch<React.SetStateAction<string | null>>
 }
 
 
@@ -32,6 +34,7 @@ export const Mycontext = createContext({} as ContextValues)
 
 export const ContextProvider = ({children}:ContextProps)=>{
     const [IsPostFormActive, setIsPostFormActive]= useState(false)
+    const [LocalStorageData, setLocalStorageData] = useState<string| null>(null)
     const [IsUserSigned, setIsUserSigned]= useState(false)
     const [UserInfo, setUserInfo]= useState<UserProfile>({
         email:"",
@@ -46,7 +49,7 @@ export const ContextProvider = ({children}:ContextProps)=>{
 
     return (
         <Mycontext.Provider value={{IsPostFormActive, setIsPostFormActive,
-            IsUserSigned, setIsUserSigned,
+            IsUserSigned, setIsUserSigned,LocalStorageData, setLocalStorageData,
             UserInfo, setUserInfo}}>
 {children}
         </Mycontext.Provider>

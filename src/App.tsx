@@ -6,20 +6,29 @@ import Home from './Pages/Home';
 import Join from './Pages/Join';
 import { useMyContext } from './Context/Postcontext';
 import Loading from './components/Loading';
-
+import PrivateRoutes from "./Utils/PrivateRoute"
 
 
 function App() {
  
-  const {setUserInfo,  setIsUserSigned} = useMyContext()
-  const Localdata  = window.localStorage.getItem("userinfo")
+  const {setUserInfo,  setIsUserSigned,UserInfo,IsUserSigned,
+    LocalStorageData, setLocalStorageData} = useMyContext()
+ 
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(true)
+ 
 
+      
   useEffect(()=>{
-    if(Localdata){
-   
-      const Data = JSON.parse(Localdata)
+
+    if(typeof window !== "undefined"){
+    const DataResult = window.localStorage.getItem("userinfo")
+    if(DataResult !== null){
+    
+      setLocalStorageData(DataResult)
+
+  const Data = JSON.parse(DataResult)
+
       setUserInfo({
         email:Data.email,
         familyName:Data.familyName,
@@ -31,16 +40,16 @@ function App() {
        setIsUserSigned(true)
        setIsLoading(false)
        navigate("/")
+     } 
     }
-    else {
-      setIsLoading(false)
-      navigate("/Signup")
-    }
-  },[])
+   
+ 
+  },[LocalStorageData])
 
-  if(isLoading)
-  return <Loading/>
+  // if(isLoading)
+  // return <Loading/>
 
+ 
 
   return (
     <div className="">
@@ -48,7 +57,10 @@ function App() {
  
       <Routes>
      
-          <Route path="/"       element={<Home />} />
+     <Route element={<PrivateRoutes/>}>
+     <Route path="/" element={<Home />}/>
+     </Route>
+       
           <Route path="/Signup" element={<Signup />} />
           <Route path="/Join"   element={<Join />} />
         

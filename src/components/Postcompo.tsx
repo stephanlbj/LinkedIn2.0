@@ -74,7 +74,7 @@ const Postcompo = () => {
     
 const SendData = async (e:React.FormEvent) =>{
 e.preventDefault()
-
+setIs_sending(true)
  
 if(File != null){
 
@@ -85,7 +85,7 @@ if(File != null){
     const downloadURL = await getDownloadURL(storageRef);
  
     try {
-      setIs_sending(true)
+     
       const docRef = await addDoc(collection(db, "Posts"), {
         Text: textareaVal===""?null :textareaVal,
         UserName: UserInfo.name,
@@ -126,7 +126,7 @@ if(File != null){
 }
 else {
   try {
-    setIs_sending(true)
+   
     const docRef = await addDoc(collection(db, "Posts"), {
       Text: textareaVal,
       UserName: UserInfo.name,
