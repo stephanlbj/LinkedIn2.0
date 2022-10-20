@@ -8,7 +8,7 @@ const PrivateRoutes = () => {
  
         
   return (
-    LocalStorageData !== null ? <Outlet/> : <Navigate to="/Signup"/>
+    LocalStorageData !== null ? <Outlet/> : <Navigate to="/"/>
   )
 }
 
