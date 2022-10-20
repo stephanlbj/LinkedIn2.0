@@ -95,7 +95,7 @@ const ID_Client = "144044652909-jgammjr4rnh7u0seu74iij48u438glhh.apps.googleuser
     const UserData = JSON.stringify(profileObj)
     setLocalStorageData(UserData)
     window.localStorage.setItem("userinfo",UserData)
- 
+    navigate("/")
     
 };
 
