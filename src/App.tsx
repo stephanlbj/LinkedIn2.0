@@ -58,10 +58,10 @@ function App() {
       <Routes>
      
      <Route element={<PrivateRoutes/>}>
-     <Route path="/" element={<Home />}/>
+     <Route path="/Home" element={<Home />}/>
      </Route>
        
-          <Route path="/Signup" element={<Signup />} />
+          <Route path="/" element={<Signup />} />
           <Route path="/Join"   element={<Join />} />
         
       </Routes>

@@ -95,14 +95,14 @@ const ID_Client = "144044652909-jgammjr4rnh7u0seu74iij48u438glhh.apps.googleuser
     const UserData = JSON.stringify(profileObj)
     setLocalStorageData(UserData)
     window.localStorage.setItem("userinfo",UserData)
-    navigate("/")
+    navigate("/Home")
     
 };
 
 
 const onFailure = (err:any) => {
     console.log('failed:', err);
-    navigate("/Signup")
+    navigate("/")
 };
 
   useEffect(() => {
@@ -127,7 +127,7 @@ const onFailure = (err:any) => {
   useEffect(()=>{
     if(typeof window !== "undefined"){
       if(LocalStorageData !== null){
-        navigate("/")
+        navigate("/Home")
       }
     }
   
