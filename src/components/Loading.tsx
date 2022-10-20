@@ -10,7 +10,7 @@ const Loading = () => {
 
 <img
 src='/imgs/git1.gif'
-height="400"
+height="200"
 />
         </div>
 

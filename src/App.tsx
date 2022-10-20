@@ -62,8 +62,6 @@ function App() {
      </Route>
        
           <Route path="/" element={<Signup />} />
-          <Route path="/Join"   element={<Join />} />
-        
       </Routes>
  
 

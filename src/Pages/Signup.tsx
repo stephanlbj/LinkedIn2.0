@@ -96,6 +96,7 @@ const ID_Client = "144044652909-jgammjr4rnh7u0seu74iij48u438glhh.apps.googleuser
     setLocalStorageData(UserData)
     window.localStorage.setItem("userinfo",UserData)
     navigate("/Home")
+    console.log("GreatW")
     
 };
 
@@ -165,7 +166,7 @@ const onFailure = (err:any) => {
  
 <GoogleLogin
           clientId={ID_Client}
-          buttonText="Sign in with Google"
+          buttonText="Sign in"
           onSuccess={onSuccess}
           onFailure={onFailure}
           cookiePolicy={'single_host_origin'}
