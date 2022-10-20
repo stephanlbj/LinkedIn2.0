@@ -1,5 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer components {
+  .Icon {
+    @apply text-gray-500 cursor-pointer ;
+  }
+}
+
+
 body {
   margin: 0;
+  background-color: #F2F4F4 ;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
