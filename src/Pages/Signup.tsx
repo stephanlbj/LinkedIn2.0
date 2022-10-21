@@ -74,14 +74,14 @@ const Signup = () => {
  //const ClientID = process.env.REACT_APP_CLIENT_ID
 
 
-
+//console.log("")
 
 const ID_Client = "596770311066-9orgc0i8qld468teceteinr5mkt238u4.apps.googleusercontent.com"
    
 
   const onSuccess = ({profileObj
   }: any) => {
- //console.log('success:',profileObj );
+//console.log('success:',profileObj );
 
     setUserInfo({
       email:profileObj.email,
@@ -95,8 +95,8 @@ const ID_Client = "596770311066-9orgc0i8qld468teceteinr5mkt238u4.apps.googleuser
     const UserData = JSON.stringify(profileObj)
     setLocalStorageData(UserData)
     window.localStorage.setItem("userinfo",UserData)
-    //navigate("/Home")
-    console.log("GreatW")
+   navigate("/Home")
+ 
     
 };
 
